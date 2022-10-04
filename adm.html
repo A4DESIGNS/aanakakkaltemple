@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ആനകാക്കിൽ ക്ഷേത്രം</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+  <!-- Template Main CSS Files -->
+  <link href="assets/css/variables.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<style>
+    #form{
+        margin:10%;
+    }
+    #btnss{
+        display:flex;
+        flex-direction:row;
+        margin-top:8%;
+        align-item:center;
+        
+    }
+    
+    #btnss > button{
+    margin-left:4%;
+    margin-right:4%;
+    }
+    #imagee {
+    border:2px solid black;
+    border-radius:6px;
+    margin-top:10%;
+    margin-bottom:10%;
+    height:150%;
+    width:150%;
+    }
+    
+    #imagees{
+    border:2px solid black;
+    border-radius:6px;
+    margin-top:10%;
+    margin-bottom:10%;
+    height:150%;
+    width:150%;
+    }
+</style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h2>ആനകാക്കിൽ ക്ഷേത്രം</h2>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Blog</a></li>
+          <li><a href="single-post.html">Single Post</a></li>
+          <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="search-result.html">Search Result</a></li>
+            <li><a href="#">Drop Down 1</a></li>
+              
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+ 
+      <div class="position-relative">
+        
+
+        
+          </a>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+        <!-- ======= Search Form ======= -->
+        <div class="search-form-wrap js-search-form-wrap">
+          <form action="search-result.html" class="search-form">
+            <span class="icon bi-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+            <button class="btn js-search-close"><span class="bi-x"></span></button>
+          </form>
+        </div><!-- End Search Form -->
+
+      </div>
+
+    </div>
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Hero Slider Section ======= -->
+    
+                <div class="md-3" id="form">
+                    <h1><u>Welcome Image Settings</u></u></h1>
+                    <form>
+  <div class="form-group">
+      <div class="form-group">
+    <label for="exampleFormControlSelect1">select Images For Edit</label>
+    <select onchange="changed()" id="imgNo" class="form-control" id="exampleFormControlSelect1">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    
+  </div>
+  <img class="img-fluid" id="imagee">
+    <label for="exampleFormControlInput1">Write Some Words</label><br><label id="taskPro"></label>
+    <input id="head" type="text" class="form-control" id="exampleFormControlInput1" placeholder="About The Picture">
+  </div>
+  
+  <div id="btnss">
+      <button onclick="selects()" id="select" type="button" class="btn btn-primary">Select</button>
+      <button onclick="upload()" id="Upload" type="button" class="btn btn-success">Upload</button>
+      <button onclick="delete()" type="button" class="btn btn-danger">Delete</button>
+  </div>
+ <!--  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+  </div>--> 
+</form>
+                </div>
+                </div>
+                
+                
+                <hr>
+                
+                <div class="md-3" id="form">
+                    <h1><u>Post Settings</u></h1>
+                    <form>
+  
+  <div class="form-check form-switch">
+  <input onchange="ckchange()" id="ckBox" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+  <label class="form-check-label" for="flexSwitchCheckChecked" id="labD">Disable, If There Is No Image</label>
+</div>
+<div>
+    <img class="img-fluid" id="imagees">
+</div>
+  <div class="form-group">
+      <div class="form-group">
+    <label for="exampleFormControlSelect1">select Images For Edit</label>
+    
+  </div>
+  
+    <label for="exampleFormControlInput1">Write Some Words</label><br><label id="taskPros"></label>
+    <input id="heads" type="text" class="form-control" id="exampleFormControlInput1" placeholder="About The Picture">
+  </div>
+  
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Add a Discription</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+  </div>
+    <div id="btnss">
+      <button onclick="selectss()" id="selects" type="button" class="btn btn-primary">Select</button>
+      <button onclick="uploads()" id="Uploads" type="button" class="btn btn-success">Upload</button>
+      <button onclick="deletes()" type="button" class="btn btn-danger">Delete</button>
+  </div>
+</form>
+                </div>
+                </div>
+                
+                
+                
+                
+   <!-- ======= End Of Hero Slider Section ======= -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  
+
+<script src="adm.js"></script>
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/css/bootstrap2/bootstrap-switch.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
+
+<script>
+ const firebaseConfig = {
+  apiKey: "AIzaSyADc46VtFNooYIJEIQs2YNGFQR27Ro5fYU",
+  authDomain: "aanakkakil.firebaseapp.com",
+  databaseURL: "https://aanakkakil-default-rtdb.firebaseio.com",
+  projectId: "aanakkakil",
+  storageBucket: "aanakkakil.appspot.com",
+  messagingSenderId: "382603137090",
+  appId: "1:382603137090:web:dea6c06fba01c701e99ddb"
+};
+firebase.initializeApp(firebaseConfig);
+
+var imgUrl,imgName ,imgHead,imgDisc,e;
+var file = [];
+var reader;
+
+
+ function selects(){
+    var input = document.createElement("input");
+    input.type = 'file';
+    
+    
+    
+    input.onchange =e=>{
+         reader =  new FileReader();
+         files = e.target.files;
+         
+         reader.onload = function(){
+             document.getElementById("imagee").src = reader.result;
+         }
+         reader.readAsDataURL(files[0])
+    }
+    input.click();
+}
+
+
+function upload(){
+    imgName = document.getElementById("imgNo").value;
+    imgHead = document.getElementById("head").value;
+if(imgHead.length == 0){
+    alert("Write Anything About The Image")
+    return
+}else{
+    var uploadTask = firebase.storage().ref("welcome/"+imgName+".png").put(files[0]);
+ uploadTask.on('state_changed',function(snapshot){
+            var progress= (snapshot.bytesTransferred / snapshot.totalBytes)*100
+            document.getElementById("taskPro").innerHTML = "Upload "+progress+"%"
+        },
+        function(error){
+            alert("Error While Uploading The Image")
+        },
+        function(){
+            uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+        imgUrl = url;
+         
+            
+       
+       firebase.database().ref("welcome/"+imgName).set({
+           name:imgName,
+           
+           heading:imgHead,
+           url:imgUrl
+       })
+       alert("Image Uploaded Successfully")
+        });
+        });
+}
+
+
+}
+
+
+   function changed(){
+     var imgno = document.getElementById("imgNo").value;
+      firebase.database().ref("welcome/"+imgno).on('value', function(snapshot){ 
+
+ var datas = snapshot.val() 
+ var title = datas.heading;
+ var link= datas.url;
+ imgName = document.getElementById("imgNo").value;
+ imgHead = document.getElementById("head").value = title;
+ imgeeeee = document.getElementById("imagee").src = link;
+ 
+        })
+       
+   }
+
+changed()
+
+var imgUrll,imgNamee ,imgHeads,imgDiscs,s;
+var filesss = [];
+var readers;
+
+
+
+function ckchange(){
+ var ckval = document.getElementById("ckBox").checked;
+ 
+ if(ckval){
+ document.getElementById("imagees").style.display = "block";
+     document.getElementById("selects").style.display = "block";
+ 
+ document.getElementById("labD").innerhtml = "Disable, If There Is No Image"
+ }else{
+     document.getElementById("imagees").style.display = "none";
+     document.getElementById("selects").style.display = "none";
+
+document.getElementById("labD").innerhtml = "Enable, If There Is Image"
+ }
+ 
+ return ckval;
+ 
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+window.onload = ckchange()
+
+
+
+
+
+
+
+function selectss(){
+
+
+    var input = document.createElement("input");
+    input.type = 'file';
+    
+    
+    
+    input.onchange =s=>{
+         readers =  new FileReader();
+         filesss = s.target.files;
+         
+         readers.onload = function(){
+             document.getElementById("imagees").src = readers.result;
+         }
+         readers.readAsDataURL(filesss[0])
+    }
+    input.click();
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+function uploads(){
+    if(ckchange()){
+        console.log(ckchange())
+ var ref = firebase.database().ref("posts");
+
+ref.once("value")
+
+  .then(function(snapshot) {
+
+    let number = snapshot.numChildren();
+
+    console.log(number)    
+
+    
+
+    
+
+            
+
+    var d = new Date();
+var dat = d.getDate()
+var mon = d.getMonth()
+mon = mon+1
+var yr = d.getFullYear()
+var orID = dat+"/"+mon+"/"+yr;
+
+    imgNamee = number+1
+    console.log(number +" "+imgNamee)
+    imgHeads = document.getElementById("heads").value;
+    imgDiscs = document.getElementById("exampleFormControlTextarea1").value;
+    
+                if(imgHeads.length == 0){
+                alert("Write Anything About The Image")
+                return
+                }else if(imgDiscs.length == 0){
+                alert("Write Discription Of The Image")
+                } else {
+                
+                    var uploadTask = firebase.storage().ref("posts/"+imgNamee+".png").put(filesss[0]);
+ uploadTask.on('state_changed',function(snapshot){
+            var progress= (snapshot.bytesTransferred / snapshot.totalBytes)*100
+            document.getElementById("taskPros").innerHTML = "Upload "+progress+"%"
+        },
+                function(error){
+            alert("Error While Uploading The Image")
+        },
+        function(){
+            uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+        imgUrl = url;
+         
+            
+       
+       firebase.database().ref("posts/"+imgNamee).set({
+           name:imgNamee,
+           disc:imgDiscs,
+           date:orID,
+           heading:imgHeads,
+           url:imgUrl
+       })
+       alert("Image Uploaded Successfully")
+        });
+        });
+                }
+    })
+} else {
+        
+        console.log(imgUrll)
+     var d = new Date();
+var dat = d.getDate()
+var mon = d.getMonth()
+mon = mon+1
+var yr = d.getFullYear()
+var orID = dat+"/"+mon+"/"+yr;
+     imgHeads = document.getElementById("heads").value;
+    imgDiscs = document.getElementById("exampleFormControlTextarea1").value;
+if(imgHeads.length == 0){
+    alert("Write Title About The Image")
+    
+}else if(imgDiscs.length == 0){
+    alert("Write Discription Of The Image")
+}else{
+var ref = firebase.database().ref("potext");
+
+ref.once("value")
+
+  .then(function(snapshot) {
+
+    let number = snapshot.numChildren();
+
+    console.log(number)
+    number = number+1    
+    firebase.database().ref("potext/"+number).set({
+        
+        disc:imgDiscs,   
+        heading:imgHeads,
+        date:orID
+        
+    })
+    
+    alert("Upload Successfull")
+
+})}
+   
+        
+ }}
+ 
+ 
+</script>
+</body>
+
+</html>
