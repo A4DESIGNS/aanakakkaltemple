@@ -43,8 +43,8 @@
     }
     
     #btnss > button{
-    margin-left:4%;
-    margin-right:4%;
+    margin-left:2%;
+    margin-right:2%;
     }
     #imagee {
     border:2px solid black;
@@ -79,23 +79,7 @@
       </a>
 
       <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="index.html">Blog</a></li>
-          <li><a href="single-post.html">Single Post</a></li>
-          <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="search-result.html">Search Result</a></li>
-            <li><a href="#">Drop Down 1</a></li>
-              
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+        
       </nav><!-- .navbar -->
  
       <div class="position-relative">
@@ -167,6 +151,7 @@
   <input onchange="ckchange()" id="ckBox" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
   <label class="form-check-label" for="flexSwitchCheckChecked" id="labD">Disable, If There Is No Image</label>
 </div>
+<input id="postNoo" type="text" class="form-control" id="exampleFormControlInput1">
 <div>
     <img class="img-fluid" id="imagees">
 </div>
@@ -188,6 +173,7 @@
     <div id="btnss">
       <button onclick="selectss()" id="selects" type="button" class="btn btn-primary">Select</button>
       <button onclick="uploads()" id="Uploads" type="button" class="btn btn-success">Upload</button>
+      <button onclick="retrievess()" id="retrieves" type="button" class="btn btn-light">Get Post</button>
       <button onclick="deletes()" type="button" class="btn btn-danger">Delete</button>
   </div>
 </form>
@@ -323,11 +309,40 @@ function ckchange(){
      document.getElementById("selects").style.display = "block";
  
  document.getElementById("labD").innerhtml = "Disable, If There Is No Image"
+ 
+ var ref = firebase.database().ref("posts");
+
+ref.once("value")
+
+  .then(function(snapshot) {
+
+    let number = snapshot.numChildren();
+
+    console.log(number)    
+document.getElementById("postNoo").value = number+1;
+
+})
+    
+
+
+ 
  }else{
      document.getElementById("imagees").style.display = "none";
      document.getElementById("selects").style.display = "none";
 
 document.getElementById("labD").innerhtml = "Enable, If There Is Image"
+var ref = firebase.database().ref("potext");
+
+ref.once("value")
+
+  .then(function(snapshot) {
+
+    let number = snapshot.numChildren();
+
+    console.log(number)    
+document.getElementById("postNoo").value = number+1;
+
+})
  }
  
  return ckval;
@@ -483,6 +498,40 @@ ref.once("value")
    
         
  }}
+ 
+ function retrievess(){
+  if(ckchange()){
+ var inmgno = document.getElementById("postNoo").value;
+ inmgno = inmgno-1
+ firebase.database().ref("posts/"+inmgno).on('value', function(snapshot){ 
+
+ var datas = snapshot.val() 
+ var cap = datas.heading;
+ var discs = datas.disc;
+ var date = datas.date;
+ var linksi= datas.url;
+ 
+ document.getElementById("heads").value = cap;
+     document.getElementById("exampleFormControlTextarea1").value = discs;
+     document.getElementById("imagees").src = linksi;
+  })
+  } else {
+  
+ var inmgno = document.getElementById("postNoo").value;
+ inmgno = inmgno-1
+ firebase.database().ref("potext/"+inmgno).on('value', function(snapshot){ 
+
+ var datas = snapshot.val() 
+ var cap = datas.heading;
+ var discs = datas.disc;
+ var date = datas.date;
+ 
+ 
+ document.getElementById("heads").value = cap;
+     document.getElementById("exampleFormControlTextarea1").value = discs;
+     })
+  }
+ }
  
  
 </script>

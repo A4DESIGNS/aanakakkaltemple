@@ -14,7 +14,7 @@ const preloader = document.querySelector('#preloader');
   
     preloader.style.display = "none"
 }
-pre()
+setTimeout(pre,2000)
 
 
 
@@ -105,7 +105,8 @@ postsR()
 
 function otrPosts(idss){
          console.log("kooi"+idss)
-    for(var i = idss;i>10 ; i--){
+         idssm = idss -10
+    for(var i = idss;i>idssm ; i--){
         firebase.database().ref("posts/"+i).on('value', function(snapshot){ 
 console.log(i)
  var datas = snapshot.val() 
@@ -124,6 +125,33 @@ console.log(i)
 
 
     }
+function postPost(){
+console.log("hey")
+    var ref = firebase.database().ref("potext");
 
+ref.once("value")
 
+  .then(function(snapshot) {
 
+    var idsst = snapshot.numChildren();
+
+    console.log("hey"+idsst)    
+    
+    console.log(idsst+"hmmm")
+    idsstm = idsst-15
+    for(var n = idsst;n>idsstm ; n--){
+        firebase.database().ref("potext/"+n).on('value', function(snapshot){ 
+ var datas = snapshot.val() 
+ var headse = datas.heading;
+ var discse = datas.disc;
+ var dates = datas.date;
+ 
+    
+    var htmlsss = "<div class='post-entry-1 border-bottom'><div class='post-meta'><span class='date'>Uploaded</span> <span class='mx-1'>&bullet;</span> <span>"+dates+"</span></div><h2 class='mb-2'><a href='single-post.html?typee=post&id="+n+"'>"+headse+"</a></h2></div>"
+    
+    document.getElementById("postPost").innerHTML += htmlsss
+})
+
+}})
+}
+postPost()
