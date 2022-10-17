@@ -28,9 +28,9 @@ ref.once("value")
 
   .then(function(snapshot) {
 
-    let number = snapshot.numChildren();
-
-    console.log(number)    
+    let numbers = snapshot.numChildren();
+ 
+  //console.log(number)    
 
     
 
@@ -38,7 +38,7 @@ ref.once("value")
 
             
 
-    for (let i = 1; i <=4; i++) {
+    for (let i = 1; i <=numbers; i++) {
 
  firebase.database().ref("welcome/"+i).on('value', function(snapshot){ 
 
@@ -52,12 +52,12 @@ var link= datas.url;
 
              
 
- console.log(i)
- console.log(link)
+// console.log(i)
+ //console.log(link)
 
  var disc= datas.imgHead;
 
- console.log(i)
+// console.log(i)
 
     
 var htttml ="<div class='swiper-slide'><a href='single-post.html?typee=img&id="+i+"' class='img-bg d-flex align-items-end' id='imHold"+i+"'style='background-image: ;'><div class='img-bg-inner'><h2>"+title+"</h2><p></p></div></a></div>"
@@ -105,8 +105,10 @@ postsR()
 
 function otrPosts(idss){
          console.log("kooi"+idss)
-         idssm = idss -10
+         idssm = idss-7
+ idssm =Math.abs(idssm)
     for(var i = idss;i>idssm ; i--){
+     //  
         firebase.database().ref("posts/"+i).on('value', function(snapshot){ 
 console.log(i)
  var datas = snapshot.val() 
@@ -116,7 +118,7 @@ console.log(i)
  var linkp2= datas.url;
     
     
-    var htmlls = "<div class='post-entry-1'><a href='single-post.html?typee=img&id="+i+"'><img src='"+linkp2+"' class='img-fluid'></a><div class='post-meta'><span class='date'>Uploaded On</span> <span class='mx-1'>&bullet;</span> <span>"+date+"</span></div><h2><a href='single-post.html'>"+heads+"</a></h2></div>"
+    var htmlls = "<div class='post-entry-1'><a href='single-post.html?typee=img&id="+i+"'><img src='"+linkp2+"' class='img-fluid'></a><div class='post-meta'><span class='date'>Uploaded On</span> <span class='mx-1'>&bullet;</span> <span>"+date+"</span></div><h2><a href='single-post.html?typee=img&id="+i+"'>"+heads+"</a></h2></div>"
 
      document.getElementById("posts2").innerHTML += htmlls
     
@@ -126,7 +128,7 @@ console.log(i)
 
     }
 function postPost(){
-console.log("hey")
+//console.log("hey")
     var ref = firebase.database().ref("potext");
 
 ref.once("value")
@@ -135,12 +137,12 @@ ref.once("value")
 
     var idsst = snapshot.numChildren();
 
-    console.log("hey"+idsst)    
+  //  console.log("hey"+idsst)    
     
-    console.log(idsst+"hmmm")
-    idsstm = idsst-15
+ //   console.log(idsst+"hmmm")
+    idsstm = idsst
     for(var n = idsst;n>idsstm ; n--){
-        firebase.database().ref("potext/"+n).on('value', function(snapshot){ 
+         firebase.database().ref("potext/"+n).on('value', function(snapshot){ 
  var datas = snapshot.val() 
  var headse = datas.heading;
  var discse = datas.disc;

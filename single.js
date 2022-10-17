@@ -21,11 +21,13 @@ var urlParams = new URLSearchParams(queryString);
 
 var page_type = urlParams.get('typee')
 var page_id = urlParams.get('id')
-
+page_id = Math.abs(page_id)
 
 
   
    sigPo(page_type,page_id)
+   
+   
    
 }
 
@@ -115,7 +117,7 @@ ref.once("value")
     console.log("hey"+idsst)    
     
     console.log(idsst+"hmmm")
-    idsstm = idsst-15
+    idsstm = idsst
     for(var n = idsst;n>idsstm ; n--){
         firebase.database().ref("posts/"+n).on('value', function(snapshot){ 
  var datas = snapshot.val() 

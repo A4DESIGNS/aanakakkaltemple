@@ -114,12 +114,7 @@
   <div class="form-group">
       <div class="form-group">
     <label for="exampleFormControlSelect1">select Images For Edit</label>
-    <select onchange="changed()" id="imgNo" class="form-control" id="exampleFormControlSelect1">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-    </select>
+    <input onchange="changed()" id="imgNo" type="text" class="form-control" id="exampleFormControlInput1">
     
   </div>
   <img class="img-fluid" id="imagee">
@@ -280,12 +275,13 @@ if(imgHead.length == 0){
 
    function changed(){
      var imgno = document.getElementById("imgNo").value;
+     imgno = imgno-1
       firebase.database().ref("welcome/"+imgno).on('value', function(snapshot){ 
 
  var datas = snapshot.val() 
  var title = datas.heading;
  var link= datas.url;
- imgName = document.getElementById("imgNo").value;
+// imgName = document.getElementById("imgNo").value;
  imgHead = document.getElementById("head").value = title;
  imgeeeee = document.getElementById("imagee").src = link;
  
@@ -302,7 +298,7 @@ var readers;
 
 
 function ckchange(){
- var ckval = document.getElementById("ckBox").checked;
+  ckval = document.getElementById("ckBox").checked;
  
  if(ckval){
  document.getElementById("imagees").style.display = "block";
@@ -345,7 +341,7 @@ document.getElementById("postNoo").value = number+1;
 })
  }
  
- return ckval;
+ console.log(ckval)
  
  
  }
@@ -360,7 +356,21 @@ window.onload = ckchange()
 
 
 
+window.onload = function (){
+    var ref = firebase.database().ref("welcome");
 
+ref.once("value")
+
+  .then(function(snapshot) {
+
+    let number = snapshot.numChildren();
+
+    console.log(number)    
+document.getElementById("imgNo").value = number+1;
+
+})
+ 
+}
 
 
 
@@ -500,7 +510,7 @@ ref.once("value")
  }}
  
  function retrievess(){
-  if(ckchange()){
+  if(ckval){
  var inmgno = document.getElementById("postNoo").value;
  inmgno = inmgno-1
  firebase.database().ref("posts/"+inmgno).on('value', function(snapshot){ 
